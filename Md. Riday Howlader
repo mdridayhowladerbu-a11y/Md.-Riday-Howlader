@@ -1,0 +1,229 @@
+<!--
+README
+======
+Title: Md. Riday Howlader — Research Website
+Description: Personal research website and academic portfolio of Md. Riday Howlader – focusing on International Relations, Refugee Studies, Geopolitics, and Migration.
+Repo: mdridayhowladerbu-a11y
+License: MIT
+
+How to use
+----------
+1. Save this file as `index.html` in the root of your repository.
+2. Preview locally by opening it in a browser, or push to GitHub and enable GitHub Pages (Settings -> Pages -> Source: main / gh-pages).
+3. To split into files, extract <style> into styles.css and <script> into scripts.js.
+4. Customize content inside <main id="content"> sections.
+
+Accessibility notes
+-------------------
+- Skip link to bypass navigation for keyboard users.
+- Semantic HTML (header, nav, main, footer, article, section).
+- ARIA labels where helpful and landmarks for screen readers.
+- High-contrast focus outline and ``prefers-reduced-motion`` support.
+- Accessible contact form (labels, aria-required, validation hints) though not hooked to a backend.
+
+-->
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Md. Riday Howlader — Research Portfolio</title>
+  <meta name="description" content="Personal research website and academic portfolio of Md. Riday Howlader – focusing on International Relations, Refugee Studies, Geopolitics, and Migration.">
+  <meta name="author" content="Md. Riday Howlader">
+
+  <!-- Basic SEO & Social preview -->
+  <meta property="og:title" content="Md. Riday Howlader — Research Portfolio">
+  <meta property="og:description" content="Research on International Relations, Refugees, Geopolitics, and Migration.">
+  <meta property="og:type" content="website">
+
+  <style>
+    :root{
+      --bg:#ffffff; --fg:#0b1220; --muted:#4b5563; --accent:#0b84ff; --maxw:1000px;
+      --focus: 3px solid #ffbf47;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;}
+    body{
+      margin:0;padding:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,"
+      "Helvetica Neue",Arial;line-height:1.5;color:var(--fg);background:var(--bg);
+      -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+    }
+    a{color:var(--accent);text-decoration:none}
+    a:focus{outline:var(--focus);}
+
+    /* Skip link */
+    .skip-link{position:absolute;left:0;top:-40px;background:#111;color:#fff;padding:8px 12px;z-index:1000;}
+    .skip-link:focus{top:8px}
+
+    header{border-bottom:1px solid #e6e9ee;padding:18px 16px}
+    .container{max-width:var(--maxw);margin:0 auto;padding:0 16px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .avatar{width:56px;height:56px;border-radius:8px;background:linear-gradient(135deg,#e6f0ff,#fff);display:inline-flex;align-items:center;justify-content:center;font-weight:700;color:var(--accent)}
+    nav{margin-top:12px}
+    nav ul{display:flex;gap:12px;list-style:none;padding:0;margin:0}
+    nav a{padding:6px 8px;border-radius:6px}
+    nav a:focus{outline:var(--focus)}
+
+    main{padding:28px 0}
+    .hero{display:grid;grid-template-columns:1fr;gap:18px;align-items:center}
+    .hero h1{margin:0;font-size:clamp(1.6rem,3.6vw,2.4rem)}
+    .muted{color:var(--muted)}
+
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:16px}
+    .card{border:1px solid #eef2f6;padding:16px;border-radius:10px;background:#fff;box-shadow:0 1px 2px rgba(11,17,32,0.04)}
+    footer{border-top:1px solid #e6e9ee;padding:20px 16px;margin-top:28px}
+
+    /* Focus visible for keyboard users only */
+    :focus:not(:focus-visible){outline:none}
+
+    /* Responsive */
+    @media(min-width:760px){
+      .hero{grid-template-columns:1fr 320px}
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce){*{transition:none!important}}
+
+    /* Simple form styles */
+    form{display:grid;gap:8px}
+    label{font-weight:600}
+    input,textarea,select{padding:10px;border:1px solid #dfe6ee;border-radius:6px;font:inherit}
+    input:focus,textarea:focus,select:focus{outline:var(--focus)}
+    button{padding:10px 14px;border-radius:8px;border:0;background:var(--accent);color:#fff;font-weight:600}
+
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+
+  <header role="banner">
+    <div class="container">
+      <div class="brand" aria-hidden="false">
+        <div class="avatar" aria-hidden="true">RH</div>
+        <div>
+          <div style="font-weight:700">Md. Riday Howlader</div>
+          <div class="muted" style="font-size:0.95rem">Researcher — International Relations & Migration</div>
+        </div>
+      </div>
+
+      <nav role="navigation" aria-label="Main navigation">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#research">Research</a></li>
+          <li><a href="#publications">Publications</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="content" role="main" tabindex="-1">
+    <div class="container">
+      <section class="hero" aria-labelledby="hero-title">
+        <div>
+          <h1 id="hero-title">Md. Riday Howlader</h1>
+          <p class="muted">Personal research website and academic portfolio — International Relations, Refugee Studies, Geopolitics, Migration.</p>
+
+          <p>Welcome — I research forced migration, hydropolitics, and geopolitical dynamics in South and Southeast Asia. Use the links to navigate to publications, projects, and contact information.</p>
+
+          <div class="grid" aria-hidden="false">
+            <article class="card" aria-labelledby="proj1">
+              <h3 id="proj1">Ongoing projects</h3>
+              <p class="muted">Climate-induced displacement fieldwork in coastal Bangladesh; comparative policy analysis.</p>
+            </article>
+            <article class="card" aria-labelledby="proj2">
+              <h3 id="proj2">PhD applications & research</h3>
+              <p class="muted">Preparing applications for fully-funded PhD programs; developing theories in behavioural politics.</p>
+            </article>
+          </div>
+        </div>
+
+        <aside class="card" aria-labelledby="contact-aside" role="complementary">
+          <h3 id="contact-aside">Quick contact</h3>
+          <p class="muted">Email: <a href="mailto:riday@example.com">riday@example.com</a></p>
+          <p class="muted">Location: Barishal, Bangladesh</p>
+          <p><a href="#contact">Send a message</a></p>
+        </aside>
+      </section>
+
+      <section id="about" class="card" aria-labelledby="about-title">
+        <h2 id="about-title">About</h2>
+        <p>I am a researcher with experience at RMMRU and the University of Barishal. My work focuses on refugees, geopolitics, hydropolitics, and forced migration. I have expertise in SPSS, NVIVO, LaTeX, R, and Python.</p>
+      </section>
+
+      <section id="research" class="card" aria-labelledby="research-title">
+        <h2 id="research-title">Research interests</h2>
+        <ul>
+          <li>Forced migration & refugee politics</li>
+          <li>Hydropolitics and transboundary water conflicts</li>
+          <li>Geopolitics of South & Southeast Asia</li>
+        </ul>
+      </section>
+
+      <section id="publications" class="card" aria-labelledby="pubs-title">
+        <h2 id="pubs-title">Selected publications & reviews</h2>
+        <p class="muted">(List your papers here. Example: "The Rohingya Crisis in Bangladesh: Challenges and Prospects" — Discover Global Society, major revision.)</p>
+      </section>
+
+      <section id="contact" class="card" aria-labelledby="contact-title">
+        <h2 id="contact-title">Contact</h2>
+        <form aria-label="Contact form" novalidate>
+          <div>
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" required aria-required="true">
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required aria-required="true">
+          </div>
+          <div>
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required aria-required="true"></textarea>
+          </div>
+          <div>
+            <button type="submit">Send message (demo)</button>
+          </div>
+          <p class="muted">This form is a demo. To receive messages, connect it to a backend or a service like Formspree, Netlify Forms or GitHub Actions + email.</p>
+        </form>
+      </section>
+
+    </div>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="container">
+      <p class="muted">© Md. Riday Howlader — Available under the MIT License.</p>
+      <p class="muted">Built with accessibility-first HTML — skip links, landmarks, semantic structure, and keyboard focus states.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Small enhancement: focus main when navigating via hash links for better screen reader behaviour
+    (function(){
+      function focusMain(){
+        var hash = location.hash;
+        if(!hash) return;
+        var el = document.querySelector(hash);
+        if(el){
+          el.setAttribute('tabindex','-1');
+          el.focus({preventScroll:true});
+        }
+      }
+      window.addEventListener('hashchange',focusMain);
+      // if page loads with hash
+      if(location.hash){setTimeout(focusMain,300)}
+
+      // Form demo: prevent real submission and show accessible alert
+      var form = document.querySelector('form[aria-label="Contact form"]');
+      if(form){
+        form.addEventListener('submit', function(e){
+          e.preventDefault();
+          var name = document.getElementById('name').value || 'Guest';
+          alert('Thanks, ' + name + '! This is a demo contact form. To enable messages set up a backend.');
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
